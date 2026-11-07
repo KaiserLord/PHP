@@ -76,3 +76,18 @@
   echo NAME;
   ?>
   ```
+### 6. Các kiểu dữ liệu trong PHP
+  - 6.1 INT(SỐ NGUYÊN)
+    - Để khai báo biến dưới dạng INT thì giá trị của biến không được chứa dấu `'` hoặc `"`
+    - Kiểu INT có kích thước 32bit (khi vượt quá thì nó sẽ tự động chuyển sang kiểu khác).
+    - Các kiểu INT qua dạng số mà PHP hỗ trợ
+      ```
+      <?php
+      $a = 1234; // hệ số thập phân
+      $a = -123; // số âm
+      $a = 0123; // Bát phân
+      $a = 0x1A; // Hệ thập lục
+      $a = 0b11111111; // Hệ nhị phân
+      ?>
+      ```
+  - 
