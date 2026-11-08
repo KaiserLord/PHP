@@ -4,6 +4,7 @@
 ### 1. Comment trong PHP
 - Ta dùng `//` cho comment 1 dòng
 - Dùng cặp thẻ `/* noi dung */`
+- Dấu `.` trong PHP được dùng để nối các chuỗi lại với nhau
 ### 2. Hiển thị dữ liệu trong PHP
 - Ta dùng `echo` để in ra dữ liệu ra màn hình
   ```
@@ -92,7 +93,7 @@
       ```
   - 6.2 Kiểu số thực
     - Kiểu số thực các bạn có thể hiểu nôm na là số có phần dư,.. như: 5.5 hoặc 8.9.
-    - Trong PHP kiểu số thực tòn tại ở 2 dạng là float và double. Cách khai báo cũng tương tự như kiểu INT.
+    - Trong PHP kiểu số thực tồn tại ở 2 dạng là float và double. Cách khai báo cũng tương tự như kiểu INT.
   - 6.3 Kiểu Boolean
     - Là một kiểu dữ liệu mà giá trị của nó chỉ tồn tại 2 giá trị TRUE,FALSE (có thể viết hoa, thường cũng được).
   - 6.4 Kiểu chuỗi
@@ -240,3 +241,64 @@
     }
     ?>
     ```
+  - 7.2 Câu lệnh if-else
+    - Phần trên chúng ta mới chỉ dùng lệnh if để kiểm tra nếu đúng thì sao còn chưa bắt được sự kiện nếu sai thì làm gì. Do đó trong PHP hay bất kỳ ngôn ngữ lập trình nào đó đều cung cấp cho chúng ta câu lệnh else để xử lý điều kiện sai, theo cú pháp:
+    ```
+    <?php
+    if (true) {
+        //code
+    } else {
+        //code
+    }
+    ?>
+    ```
+    - Ví dụ:
+    ```
+    <?php
+    $tuoi = 19;
+    if ($tuoi < 18) {
+        echo "bạn chưa đủ 18 tuổi";
+    } else {
+        echo "bạn đã đủ 18 tuổi rồi";
+    }
+    // kết quả : bạn đã đủ 18 tuổi rồi
+    ?>
+    ```
+- 7.3 Câu lệnh elseif
+    - Đây là câu lệnh kết hợp với if để tạo ra nhiều nhánh có điều kiện xác định khác nhau.
+    - Có thể dùng `elseif` hoặc `else if`
+    - Cú pháp
+    ```
+    <?php
+    if (true) {
+        // code
+    } elseif (true) {
+        //code
+    }
+    ?>
+    ```
+    - Trong đó nếu điều kiện elseif đúng thì chương trình mới chạy phần code bên trong elseif.
+- 7.4 Câu lệnh if-else lồng
+  - Ví dụ:
+  ```
+  <?php
+  $diem = 5;
+  if ($diem <= 10) {
+      if ($diem < 4) {
+          echo "Học Lại";
+      } else if ($diem >= 4 && $diem < 5.5) {
+          echo "Loại D";
+      } else if ($diem >= 5.5 && $diem < 7) {
+          echo "Loại C";
+      } else if ($diem >= 7 && $diem < 8.5) {
+          echo "Loại B";
+      } else if ($diem >= 8.5 && $diem <= 10) {
+          echo "Loại A";
+      }
+  } else {
+      echo "Điểm không hợp lệ";
+  }
+  ?>
+  ```
+
+ 
