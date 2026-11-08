@@ -1,4 +1,4 @@
-## Warm up(Tất cả nội dung mình viết ở đây đều được lấy ở trang <https://toidicode.com/> Bạn có thể học hỏi thêm trên đó nhé) 
+## Warm up(Tất cả nội dung mình viết ở đây đều được lấy ở trang [https://toidicode.com] Bạn có thể học hỏi thêm trên đó nhé) 
 - Để PHP có thể chạy được thì bắt buộc tên của files phải có phần mở rộng là .php 
 - Tất cả các code PHP phải nằm trong Tag: `<?php ?>` hoặc `<?= ?>`
 ### 1. Comment trong PHP
@@ -90,4 +90,153 @@
       $a = 0b11111111; // Hệ nhị phân
       ?>
       ```
-  - 
+  - 6.2 Kiểu số thực
+    - Kiểu số thực các bạn có thể hiểu nôm na là số có phần dư,.. như: 5.5 hoặc 8.9.
+    - Trong PHP kiểu số thực tòn tại ở 2 dạng là float và double. Cách khai báo cũng tương tự như kiểu INT.
+  - 6.3 Kiểu Boolean
+    - Là một kiểu dữ liệu mà giá trị của nó chỉ tồn tại 2 giá trị TRUE,FALSE (có thể viết hoa, thường cũng được).
+  - 6.4 Kiểu chuỗi
+    - Kiểu chuỗi trong PHP tồn tại ở hai dạng là String và Char. Để khai báo chuỗi thì giá trị của chuỗi phải được đặt trong cặp dấu ngoặc `'` hoặc `"`.
+      ```
+      <?php
+      $string = 'toidicode.com';
+      //đúng
+      $string = "toidicode.com";
+      // đúng
+      $string = toidicode.com;
+      // sai
+      ?>
+      ```
+    - Riêng đối với chuỗi, trong PHP có cung cấp cho chúng ta hàm `is_string()` kiểm tra xem phần tử có phải chuỗi hay không. Hàm này kết quả sẽ trả về TRUE nếu đúng và FALSE nếu sai.
+      ```
+      <?php
+      $a = 'toidicode.com';
+      //khai bao bien a
+      $b = 95;
+      //khai bao bien b
+      is_string($a); // true
+      is_string($b); // false
+      ?>
+  - 6.5 Kiểu mảng
+      - Kiểu mảng hay còn gọi là array trong PHP là một danh sách các phần tử có cùng, hoặc không cùng kiểu dữ liệu. Nó gồm có 2 loại mảng là **mảng một chiều** và **mảng đa chiều** và trong mỗi loại mảng đó nó lại phân ra thành **mảng tuần tự** và **mảng bất tuần tự**. Và để truy xuất phần tử trong mảng thì chúng ta cần phải dự vào vị trí của nó.
+      - Khai báo mảng
+        - Để khai báo mảng trong PHP chúng ta có 2 cách khởi tạo:
+          ```
+          // CÁCH 1
+          <?php
+          $array = array();
+          ?>
+
+          // CÁCH 2 (Đối với PHP>=5.4)
+          <?php
+          $array = [];
+          ?>
+          ```
+        - Bên cạnh đó các bạn cũng có thể khai báo kèm thêm với giá trị của mảng tương ứng với 2 cách trên.
+          ```
+          <?php
+          $array = array('giá trị 1', 'giá trị 2');
+          ?>
+
+          <?php
+          $array = ['giá trị 1', 'giá trị 2'];
+          ?>
+          ```
+      - Hiển thị mảng
+          - Trong PHP có cung cấp cho chúng ta hàm print_r() để in ra tất cả các phần tử và vị trí của nó trong mảng.
+          - VD: Mình sẽ khởi tạo một mảng $ten gồm 4 giá trị là Nguyễn, Phạm, Minh, Chiến và đồng thời cho in ra giá trị của các mảng luôn.
+          ```
+          <?php
+          $ten= array('Nguyễn','Phạm','Minh','Chiến');
+          print_r($ten);
+          ?>
+          ```
+          - Và đây là kết quả sau khi chạy đoạn code này
+          ```
+          Array
+          (
+              [0] => Nguyễn
+              [1] => Phạm
+              [2] => Minh
+              [3] => Chiến
+          )
+          ```
+          - Nhìn vào kết quả trên các bạn cũng đã thấy được vị trí của mảng sẽ bắt đầu từ 0 cho đến n (chú ý: chỉ áp dụng với mảng tuần tự).
+          - Giờ nếu muốn in ra một phần tử thì các bạn sẽ phải dựa vào vị trí của phần tử đó.
+          ```
+          <?php
+          $ten = array('Nguyễn', 'Phạm', 'Minh', 'Chiến');
+          // khởi tạo mảng
+          echo $ten[0]; //Nguyến
+          echo $ten[1]; //Phạm
+          echo $ten[2]; // Minh
+          echo $ten[3]; // Chiến
+          ?>
+          ```
+      - Thêm phần tử vào mảng
+        - Để thêm phần tử vào mảng, ta làm theo cú pháp sau:
+          ```
+          $TenMang['key'] = 'value';
+          ```
+        - Trong đó:
+          - Tenmang: Là tên của mảng.
+          - Key: là key của mảng, nếu không điền thì php sẽ tự thêm vào cuối mảng.
+          - Value: là giá trị phần tử. 
+      - Sửa phần tử trong mảng
+        - Cú pháp:
+          ```
+          <?php
+          $mang['index'] = 'giá trị mới';
+          ?>
+          ```
+        - Trong đó:
+          - mang: Là tên của mảng.
+          - index: là key của mảng, nếu không điền thì php sẽ tự thêm vào cuối mảng.
+          - giá trị mới: là giá trị phần tử.
+  - 6.6 Kiểu Null
+    - Đây là một kiểu dữ liệu rỗng. Khi khai báo biến kiểu này bộ nhớ sẽ tiếp nhận tên biến mà không tốn thêm bất kỳ một ô nhớ nào.
+    - Cú pháp:
+      ```
+      <?php
+      $a = null;
+      ?>
+      ```
+  - 6.7 Ép kiểu
+    - Cú pháp:
+      ```
+      <?php
+      $bienMoi = (kieudulieu) $bien;
+      ?>
+      ```
+    - Trong đó :
+      - $bienMoi: là biến mới chứa dữ liệu sau khi đã ép.
+      - $kieudulieu: là một trong các kiểu dữ liệu mình nêu ở trên.
+      - $bien: là biến mà bạn muốn ép kiểu (có thể là dữ liệu sẵn).
+    - Ví dụ:
+    ```
+      <?php
+      $a = 9; //khai báo biến a kiểu int
+      $b = (string) $a; // ép kiểu sang string
+      ?>
+    ```
+    - Để kiểm tra xem dữ liệu đang ở kiểu nào các bạn có thể dùng hàm `var_dump()`;
+### 7. Câu lệnh điều kiện if else trong PHP
+  - 7.1 Câu lệnh if
+    - Câu lệnh if chứa thông tin điều kiện đúng thì thực hiện nội dung bên trong theo cú pháp:
+    ```
+    <?php
+    if (true) {
+        // code
+    }
+    ?>
+    ```
+    - Trong đó: True là các toán tử,biểu thức logic,quan hệ hoặc là các giá trị kiểu boolean.
+    - Ví dụ : Kiểm tra biến $a nếu lớn hơn 4 thì hiển thị nội dung thông báo.
+    ```
+    <?php
+    $a = 5;
+    if ($a > 4) {
+        echo $a . 'lớn hơn 4';
+    }
+    ?>
+    ```
