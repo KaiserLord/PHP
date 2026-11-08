@@ -300,5 +300,108 @@
   }
   ?>
   ```
-
- 
+### 8. Vòng lặp for và foreach
+  - 8.1 Vòng lặp for
+    - Cú pháp:
+      ```
+      for (bienkhoitao; dieukienthucthi; buocnhay) { 
+      // code...
+      } 
+      ```
+    - Trong đó:
+      - bienkhoitao: là giá trị khởi tạo ban đầu của vòng lặp.
+      - dieukienthucthi: là điều kiện mà vòng lặp được phép chạy (chú ý: Nếu bạn muốn lặp vô tận thì có thể bỏ trống).
+      - buocnhay: là khoảng đệm nhảy của mỗi vòng lặp.
+    - Xét ví dụ sau:
+      ```
+      <?php
+      for ($i = 0; $i <= 10; $i++) {
+          echo 'Tôi đang chạy đến số ' . $i . '<br/>';
+      }
+      ?>
+      ```
+    - Ở bài toán trên ta đã cho khởi tạo vòng lặp chạy từ 1 cho đến 10: và cứ mỗi một lần lặp thì in ra dòng chữ : 'tôi đang chạy đến số' + số mà vòng lặp chạy tới.
+      ```
+      //Output
+      Tôi đang chạy đến số 0
+      Tôi đang chạy đến số 1
+      Tôi đang chạy đến số 2
+      Tôi đang chạy đến số 3
+      Tôi đang chạy đến số 4
+      Tôi đang chạy đến số 5
+      Tôi đang chạy đến số 6
+      Tôi đang chạy đến số 7
+      Tôi đang chạy đến số 8
+      Tôi đang chạy đến số 9
+      Tôi đang chạy đến số 10
+      ```
+- 8.2 Vòng lặp foreach
+  - Cú pháp
+    ```
+    <?php
+    foreach ($variable as $key => $value) {
+        // code...
+    }
+    ?>
+    ```
+  - hoặc nếu không muốn lặp key của mảng, object.
+    ```
+    <?php 
+    foreach ($variable as $value) {
+        // code...
+    }   
+    ?>
+    ```
+  - Trong đó:
+    - `$variable`: Là biến mà các bạn muốn lặp (có thể là array, object).
+    - `$key`: Là các key của mảng hoặc properties của object. Tức là vị trí của phần tử đó trong arry hoặc object bắt đầu bằng số 0
+    - `$value`: Là giá trị của mảng,object. 
+- 8.3 For và Foreach lồng
+  - Cũng giống như trong câu lệnh rẽ nhánh, vòng lặp cũng hoàn toàn có thể lồng nhau được.
+### 9. Vòng lặp While và do While
+  - 9.1 Vòng lặp While
+    - Vòng lặp while cũng dùng để lặp dữ liệu như các vòng lặp khác nhưng ưu điểm của nó là có thể giải quyết những bài toán không biết chính xác số vòng lặp (for cũng có thể làm đc) và cách sử dụng nó cũng rất đơn giản.
+    - Cú pháp :
+    ```
+    <?php 
+    while ($dieukien) {
+        // code...
+    }
+    ?>
+    ```
+    - Trong đó: `$dieukien` là điều kiện của vòng lặp. Nếu điều kiện trả về true thì vòng lặp sẽ chạy và ngược lại false thì sẽ dừng.
+    - Xét ví dụ sau:
+    ```
+    <?php
+    $i = 0; // khởi tạo biến
+    while ($i <= 10 /* điều kiện dừng*/) {
+        echo $i . "<br>"; // in ra số
+        $i++; //sau mỗi lần lặp biến $i tăng thêm 1 đơn vị
+    }
+    ?>
+    ```
+    - Output của ví dụ này là:
+    ```
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    ```
+- 9.2 Vòng lặp do-while
+  - Đây là một vòng lặp ngược lại với các vòng lặp từ trước đến giờ, các vòng lặp khác kiểm tra điều kiện trước rồi với thực thi câu lệnh, còn vòng lặp do-while thực thi câu lệnh trước rồi mới kiểm tra điều kiện.
+  - Cú pháp :
+    ```
+    <?php
+    do {
+         // code....
+    } while ($dieukien);
+    ?>
+    ```
+  - Trong đó: `$dieukien` là điều kiện của vòng lặp. Nếu điều kiện trả về true thì vòng lặp sẽ chạy và ngược lại false thì sẽ dừng.
