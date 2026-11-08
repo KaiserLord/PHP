@@ -405,3 +405,47 @@
     ?>
     ```
   - Trong đó: `$dieukien` là điều kiện của vòng lặp. Nếu điều kiện trả về true thì vòng lặp sẽ chạy và ngược lại false thì sẽ dừng.
+  - **Chú ý**: Phải có dấu ; ở phía sau while không chương trình sẽ báo lỗi.
+  - VD: in ra các số từ 0 đến 10 bằng vòng lặp do while.
+    ```
+    <?php
+    $i = 0; //khởi tạo biến $i bằng 0
+    do {
+        echo "$i <br>"; // thực hiện in ra $i hiện tại
+        $i++; // cộng thêm 1 đơn vị sau mỗi lần lặp
+    } while ($i <= 10/* nếu $i mà lớn hơn 10 dừng vòng lặp*/);
+    ?>
+    ```
+- 9.3 While, do-while lồng nhau.
+  - Cũng giống như vòng lặp for và foreach trong while,do-while cũng có thể lồng nhau được.
+### 10. Hàm
+- 10.1 Cấu trúc của hàm
+  - Cú pháp
+    ```
+    function tenHam($param)
+    {
+        // code 
+    } 
+    ```
+  - Trong đó:
+      - function: là từ khóa bắt buộc để khai báo hàm trong PHP.
+      - tenHam: là tên của Hàm các bạn muốn đặt nó cũng bao gồm các ràng buộc như đặt tên biến.
+      - $param: là các tham số mà các bạn muốn truyền vào trong hàm(không giới hạn số lượng tham số truyền vào).
+  - **Chú ý**: Trong PHP không ràng buộc hàm có giá trị trả về với không có giá trị trả về nên có thể chứa return hoặc không.
+  - 10.2 Gọi hàm
+    - Cú pháp
+      ```
+      tenHam();
+      //hoặc
+      tenHam($param); 
+      ```
+    - Trong đó:
+      - tenHam: là tên của hàm các bạn muốn gọi.
+      - $param: là tham số các bạn muốn truyền vào hàm (nếu lúc khai báo hàm có yêu cầu truyền tham số).
+  - 10.3 Kiểm tra hàm đã tồn tại
+    - Cú pháp
+    ```
+    function_exists('functionName');
+    ```
+    - Trong đó: functionName là tên của hàm các bạn kiểm tra và hàm này sẽ trả về giá trị TRUE nếu hàm đã tồn tại và  ngược lại FALSE nếu chưa tồn tại.
+
