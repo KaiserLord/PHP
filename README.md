@@ -448,4 +448,41 @@
     function_exists('functionName');
     ```
     - Trong đó: functionName là tên của hàm các bạn kiểm tra và hàm này sẽ trả về giá trị TRUE nếu hàm đã tồn tại và  ngược lại FALSE nếu chưa tồn tại.
-
+### 11. Phương thức GET và POST trong PHP
+- 11.1 Phương thức GET
+  - a. Lý thuyết
+    - Phương thức `GET` gửi dữ liệu từ client lên server thông qua các paramter (tham số) trên URL, từ đó server sẽ phân tích dữ liệu để thực thi một hành động nào đó
+    - Các tham số mà phương thức `GET` gửi lên sẽ bắt đầu sau dấu `?` . Và sẽ nối nhau giữa các khóa thông qua dấu `&`
+    - Ví dụ 1: Với url `http://toidicode.com?age=19&name=NguyenPhamMinhChien` lúc này chúng ta đang gửi dữ liệu bằng phương thức `GET` lên server với tham số age=19 và name=NguyenPhamMinhChien
+  - b. Sever nhận dữ liệu
+    - Để thông báo cho server nhận dữ liệu `GET` khi có thì chúng ta chỉ cần sử dụng `$_GET` đây là một biến toàn cục lưu trữ dưới dạng mảng bất tuần tự.
+    - Ví dụ 2: như với URL ở VD1 thì trên server sẽ lưu trữ cho chúng ta như sau:
+    ```
+    <?php
+    $_GET = [
+        "name" => "Nguyễn Phạm Minh Chiến",
+        "age" => 19,
+    ];
+    ```
+    - Vì `GET` được lưu dưới dạng mảng bất tuần tự nên có thể lấy giá trị theo kiểu mảng là được
+    ```
+    echo $_GET['age']; // lấy age
+    echo $_GET['name']; //lấy name;
+    ```
+    - Ngoài cách gửi dữ liệu bằng form thì vì đây là phương thức GET lên hoàn toàn các bạn có thể truyền tham số bằng tay thông qua paramter trên URL.
+- 11.2 Phương thức POST
+  - a. Lý thuyết
+    - Khác với phương thức `GET` phương thức `POST` không gửi dữ liệu thông qua paramter trên URL, nên chúng ta không thể nhìn thấy được dữ liệu đang được gửi là gì.
+  - b. Sever nhận dữ liệu
+    - Để thông báo cho server nhận dữ liệu POST khi có thì chúng ta chỉ cần sử dụng $_POST đây là một biến toàn cục lưu trữ dưới dạng mảng bất tuần tự.
+    - Và để lấy giá trị của POST chúng ta sử dụng cú pháp:
+    ```
+    $_POST['name'];
+    ```
+    - Trong đó: name là tên của post data chúng ta muốn nhận
+- 11.3 Kiểm tra với isset
+    - Hàm isset() trong PHP có chức năng kiểm tra xem biến có tồn tại hay không. Nó sẽ trả về `TRUE` nếu biến đó có tồn tại và ngược lại `FALSE` nếu biến đó không tồn tại
+    - Cú pháp
+    ```
+    isset($bien);
+    ```
