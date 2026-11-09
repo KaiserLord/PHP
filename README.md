@@ -486,3 +486,67 @@
     ```
     isset($bien);
     ```
+### 12. SESSION và COOKIE trong PHP
+- 12.1 SESSION TRONG PHP
+  - a. Lý thuyết
+    - Biến Session trong PHP dùng để lưu trữ thông tin như thông tin người dùng, thông tin cấu hình,... Mà nó chỉ có thể tồn tại đến khi chúng ta đóng trình duyệt. Và mỗi client sẽ có một SessionID khác nhau nên hoàn toàn không có thể xảy ra việc xung đột session. Ứng dụng thực tế trong việc sử dụng session thường làm chức năng đăng nhập, giỏ hàng,...
+  - b. Khởi tạo session
+    - Muốn khởi tạo được session trong PHP thì bắt buộc các bạn phải khai báo `session_start();` ở đầu mỗi file. Hàm này có tác dụng khai báo cho server biết phiên làm việc có sử dụng session.
+    - Ví dụ:
+    ```
+    <?php 
+    session_start();
+    // code
+    ?>
+    ```
+  - c. Lưu trữ session
+    - Cũng giống như `GET` và `POST`, session cũng được lưu trong một biến toàn cục `$_SESSION`, Vì vậy khi muốn thêm sửa xóa session chúng ta cũng phải thao tác trên biến này.
+  - d. Thêm,sửa session
+    - Để thêm hoặc session các bạn sử dụng cú pháp: `$_SESSION['name'] = 'value';`
+    - Trong đó:
+      - name là tên của session.
+      - value là giá trị của session, giá trị này có thể là một chuỗi,mảng,số,...
+    - Ví dụ : Thêm session
+      ```
+      <?php
+      $_SESSION['user'] = 'admin';
+      // hoặc đối với mảng
+      $array = [5, 8, 6, 4, 7, 5];
+      $_SESSION['user'] = $array;
+      ```
+    - Ví dụ: sửa session.
+      ```
+      <?php
+      // khởi tạo session user có giá trị là NGUYENPHAMMINHCHIEN
+      $_SESSION['user'] = 'NGUYENPHAMMINHCHIEN';
+      // sửa giá trị của session user thành K4IS3RLO4D
+      $_SESSION['user'] = 'K4IS3RLO4D';
+  - e. Lấy giá trị
+    - Cú pháp: `$_SESSION['name'];`
+    - Trong đó: name là tên của session các bạn muốn lấy
+  - f. Xoá session
+    - Để xóa session thì các bạn chỉ cần sử dụng hàm unset() theo cú pháp sau: `unset($bien);`
+    - Để xoá tất cả session thì ta sử dụng cú pháp sau:
+      ```
+      session_destroy();
+      //hoac
+      unset($_SESSION);
+      ```
+- 12.2 Cookie trong PHP
+  - a.Lý thuyết
+    - Cookie thường được dùng để lưu những tùy chọn riêng của từng user,... Cookie được lưu trữ ở máy của client lên khi đóng trình duyệt thì cookie vẫn tồn tại và tồn tại bao lâu là do bạn set.
+  - b.Khởi tạo cookie
+    - Để khởi tạo cookie thì bạn sử dụng hàm setcookie() theo cú pháp sau: `setcookie($name, $value, $expire, $path, $domain);`
+    - Trong đó:
+      - $name là tên của cookie các bạn muốn tạo.
+      - $value là giá trị của cookie đó.
+      - $expire là thời gian sống của cookie.
+      - $path là đường dẫn lưu trữ cookie.
+      - $domain là tên của domain.
+  - c. Lấy giá trị Cookie
+    - Cú pháp : `$_COOKIE[$name];`
+    - Trong đó: $name là tên của cookie các bạn muốn lấy.
+  - d. Xóa Cookie
+    - Để xóa cookie thì các bạn chỉ cần xét cho thời gia sống của nó nhỏ hơn thời điểm hiện tại.
+
+  
